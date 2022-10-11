@@ -1,0 +1,64 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "product_name": "Camiseta",
+      "price": 10,
+      "images": [
+        "https://lorempixel.com/400x400", 
+        "https://lorempixel.com/300x300", 
+        "https://lorempixel.com/200x200"
+      ],
+      "description": "Camisetas hermosísimas",
+      "features": {
+        "color": "blanco", 
+        "tallas": ["s", "m", "l"]
+      }
+    },
+    {
+      "id": 2,
+      "product_name": "Camiseta",
+      "price": 10,
+      "images": [
+        "https://lorempixel.com/400x400", 
+        "https://lorempixel.com/300x300", 
+        "https://lorempixel.com/200x200"
+      ],
+      "description": "Camisetas hermosísimas",
+      "features": {
+        "color": "blanco", 
+        "tallas": ["s", "m", "l"]
+      }
+    },
+    {
+      "id": 3,
+      "product_name": "Camiseta",
+      "price": 10,
+      "images": [
+        "https://lorempixel.com/400x400", 
+        "https://lorempixel.com/300x300", 
+        "https://lorempixel.com/200x200"
+      ],
+      "description": "Camisetas hermosísimas",
+      "features": {
+        "color": "blanco", 
+        "tallas": ["s", "m", "l"]
+      }
+    },
+    {
+      "id": 4,
+      "product_name": "Camiseta",
+      "price": 10,
+      "images": [
+        "https://lorempixel.com/400x400", 
+        "https://lorempixel.com/300x300", 
+        "https://lorempixel.com/200x200"
+      ],
+      "description": "Camisetas hermosísimas",
+      "features": {
+        "color": "blanco", 
+        "tallas": ["s", "m", "l"]
+      }
+    }
+  ]
+}
