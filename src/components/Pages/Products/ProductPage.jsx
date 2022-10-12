@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import { TbTruckDelivery } from 'react-icons/tb';
 import { useParams } from 'react-router-dom';
 import { CartContext } from '../../../context/CartContext';
 import useFetch from '../../../hooks/useFetch';

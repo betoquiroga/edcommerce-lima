@@ -6,11 +6,7 @@ const ProductInformation = ({ description, deliveryAvailable }) => {
 			<div className="mb-6">
 				<h2 className="text-xl font-semibold mb-2">Descripción del producto</h2>
 				<p className="text-gray-500">
-					{description} fdkl jasdk jklsdfj sfj sjfkld jklasdfjsdjfl jklasfj
-					lasdjfl jfl jklasjf lasdfj kldfjl sdjflksaj lkasjf lsadfjl sjflsd
-					jlasdjf lsafjl sjklsdjf lsdjfl jasdlfj slkdfj lsadjl jlasdjf lkasdfj
-					ksdfjlkds jfklasdj kldasjfkl jasdfkl jskfjlsdfjkls jfklsdjf lsdjf sjfl
-					jasfkl jaslkfj klasfj lkasfjklasdjlasdjdf
+					{description}
 				</p>
 			</div>
 			{deliveryAvailable && (
