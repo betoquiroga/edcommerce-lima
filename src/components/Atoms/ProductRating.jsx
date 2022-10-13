@@ -1,7 +1,7 @@
 import { AiFillStar } from 'react-icons/ai';
 import { formatRating } from '../../helpers/number';
 
-const ProductRating = ({ rating, className }) => {
+const ProductRating = ({ rating = 0, className }) => {
 	const missingStars = 5 - rating;
 
 	return (

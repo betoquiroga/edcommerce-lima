@@ -6,7 +6,8 @@ import BuyButton from '../Atoms/BuyButton';
 import ProductRating from '../Atoms/ProductRating';
 
 const ProductCard = ({ product }) => {
-	const { images, product_name, id, price, description } = product;
+	const { images, product_name, id, price, description, rating } = product;
+
 	const { state, dispatch } = useContext(CartContext);
 
 	return (
@@ -26,9 +27,9 @@ const ProductCard = ({ product }) => {
 						{product_name}
 					</h3>
 				</Link>
-				<p className="text-gray-500">{description}</p>
+				<p className="text-gray-500 line-clamp-2">{description}</p>
 			</div>
-			<ProductRating rating={3} className="mb-3" />
+			<ProductRating rating={rating} className="mb-3" />
 			<div className="flex justify-between items-center">
 				<span className="text-xl font-bold text-gray-900">
 					{formatPrice(price)}

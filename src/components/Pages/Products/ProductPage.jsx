@@ -39,7 +39,7 @@ function ProductPage() {
 								alt={product.product_name}
 							/>
 						</div>
-						<ProductDetails />
+						<ProductDetails details={product.features} />
 					</div>
 					<div>
 						<span className="block text-gray-500 text-sm mb-2">
