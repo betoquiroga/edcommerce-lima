@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+	background: #e9eff2;
+}
+
 input,
 textarea {
 	@apply block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-200 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none;
@@ -19,14 +23,14 @@ button,
 .banner {
 	background: radial-gradient(
 		111% 364% at 7% 15%,
-		#1f3ea1 0,
-		#1d5db8 23%,
-		#1c7acd 36%,
-		#1aa7ee 50%,
-		#1c77cb 67%,
-		#1c60ba 80%,
-		#1e2f97 100%
-	);
+		#cedff3 0,
+		#f1f1f1 23%,
+		#d3dbe1 36%,
+		#ffffff 50%,
+		#f6f6f6 67%,
+		#dadfe2 80%,
+		#b3b3b3 100%
+	 );
 }
 
 .banner::before {
