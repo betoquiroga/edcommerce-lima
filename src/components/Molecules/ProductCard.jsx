@@ -6,7 +6,10 @@ import BuyButton from '../Atoms/BuyButton';
 import ProductRating from '../Atoms/ProductRating';
 
 const ProductCard = ({ product }) => {
-	const { images, product_name, id, price, description, rating } = product;
+	const { images, product_name, id, price, description, features } = product;
+	const {
+		stats: { rating },
+	} = features;
 
 	const { state, dispatch } = useContext(CartContext);
 

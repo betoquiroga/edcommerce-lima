@@ -3,4 +3,5 @@ export const PRODUCT_DETAILS = {
 	brand: 'Marca',
 	model: 'Modelo',
 	year: 'Año',
+	category: 'Categoría',
 };

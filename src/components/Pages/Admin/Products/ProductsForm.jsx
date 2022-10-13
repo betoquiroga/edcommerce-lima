@@ -8,6 +8,8 @@ const ProductsForm = () => {
 	const nav = useNavigate();
 	const params = useParams();
 
+	const [hasDelivery, setHasDelivery] = useState(false);
+	const [isNew, setIsNew] = useState(false);
 	const [product, setProduct] = useState();
 	const [isLoading, setIsLoading] = useState(false);
 	useEffect(() => {
@@ -24,6 +26,12 @@ const ProductsForm = () => {
 		}
 	}, []);
 
+	useEffect(() => {
+		if (!product) return;
+		setIsNew(product.features.stats.isNew);
+		setHasDelivery(product.features.stats.hasDelivery);
+	}, [product]);
+
 	const [error, setError] = useState();
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -32,13 +40,20 @@ const ProductsForm = () => {
 			price: Number(e.target.price.value),
 			images: [e.target.image1.value],
 			description: e.target.description.value,
-			rating: Number(e.target.rating.value),
-			sold: Number(e.target.sold.value),
 			features: {
-				color: e.target.color.value,
-				brand: e.target.brand.value,
-				model: e.target.model.value,
-				year: e.target.year.value,
+				details: {
+					color: e.target.color.value,
+					brand: e.target.brand.value,
+					model: e.target.model.value,
+					year: e.target.year.value,
+					category: e.target.category.value,
+				},
+				stats: {
+					rating: Number(e.target.rating.value),
+					sold: Number(e.target.sold.value),
+					isNew,
+					hasDelivery,
+				},
 			},
 		};
 
@@ -102,7 +117,7 @@ const ProductsForm = () => {
 								name="sold"
 								step="1"
 								required
-								defaultValue={product && product.sold}
+								defaultValue={product && product.features.stats.sold}
 							/>
 						</div>
 						<div>
@@ -120,7 +135,7 @@ const ProductsForm = () => {
 								type="text"
 								name="brand"
 								required
-								defaultValue={product && product.features.brand}
+								defaultValue={product && product.features.details.brand}
 							/>
 						</div>
 						<div>
@@ -129,16 +144,7 @@ const ProductsForm = () => {
 								type="text"
 								name="model"
 								required
-								defaultValue={product && product.features.model}
-							/>
-						</div>
-						<div>
-							<label htmlFor="color">Año</label>
-							<input
-								type="text"
-								name="year"
-								required
-								defaultValue={product && product.features.year}
+								defaultValue={product && product.features.details.model}
 							/>
 						</div>
 						<div>
@@ -147,20 +153,31 @@ const ProductsForm = () => {
 								type="text"
 								name="color"
 								required
-								defaultValue={product && product.features.color}
+								defaultValue={product && product.features.details.color}
 							/>
 						</div>
-						<div>
-							<label htmlFor="color">Rating</label>
-							<input
-								type="number"
-								name="rating"
-								required
-								defaultValue={product && product.rating}
-								min="1"
-								max="5"
-								step="1"
-							/>
+						<div className="grid grid-cols-2 gap-4">
+							<div>
+								<label htmlFor="color">Año</label>
+								<input
+									type="text"
+									name="year"
+									required
+									defaultValue={product && product.features.details.year}
+								/>
+							</div>
+							<div>
+								<p htmlFor="delivery">Rating</p>
+								<input
+									type="number"
+									name="rating"
+									required
+									defaultValue={product && product.features.stats.rating}
+									min="1"
+									max="5"
+									step="1"
+								/>
+							</div>
 						</div>
 						<div>
 							<label htmlFor="description">Description</label>
@@ -170,6 +187,77 @@ const ProductsForm = () => {
 								required
 								defaultValue={product && product.description}
 							/>
+						</div>
+						<div className="flex flex-col">
+							<label htmlFor="category">Categoría</label>
+							<select
+								name="category"
+								className="outline-none text-center h-9 rounded"
+								defaultValue={
+									product ? product.features.details.category : 'Otros'
+								}
+							>
+								<option value="Otros" disabled selected>
+									--- Selecciona una categoría ---
+								</option>
+								<option value="Tecnología">Tecnología</option>
+								<option value="Hogar">Hogar</option>
+								<option value="Deportes">Deportes</option>
+								<option value="Moda">Moda</option>
+								<option value="Juguetes">Juguetes</option>
+							</select>
+						</div>
+						<div className="flex gap-10">
+							<div>
+								<p className="mb-2">Envio a domicilio</p>
+								<div className="flex gap-2">
+									<label className="flex items-center gap-1">
+										<span>Si</span>
+										<input
+											type="radio"
+											name="delivery"
+											className="mt-1"
+											onChange={() => setHasDelivery(true)}
+											checked={hasDelivery}
+										/>
+									</label>
+									<label className="flex items-center gap-1">
+										<span>No</span>
+										<input
+											type="radio"
+											name="no-delivery"
+											className="mt-1"
+											onChange={() => setHasDelivery(false)}
+											checked={!hasDelivery}
+										/>
+									</label>
+								</div>
+							</div>
+							<div>
+								<p className="mb-2">Nuevo</p>
+								<div className="flex gap-2">
+									<label className="flex items-center gap-1">
+										<span>Si</span>
+										<input
+											type="radio"
+											name="new"
+											className="mt-1"
+											onChange={() => setIsNew(true)}
+											checked={isNew}
+										/>
+									</label>
+									<label className="flex items-center gap-1">
+										<span>No</span>
+										<input
+											type="radio"
+											name="old"
+											className="mt-1"
+											onChange={() => setIsNew(false)}
+											checked={!isNew}
+										/>
+									</label>
+								</div>
+							</div>
 						</div>
 					</div>
 					<button type="submit" className="bg-gradient">

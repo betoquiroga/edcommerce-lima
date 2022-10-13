@@ -27,6 +27,8 @@ function ProductPage() {
 
 	if (error) return <div>{error?.message}</div>;
 
+	const { rating, sold, isNew, hasDelivery } = product.features.stats;
+
 	return (
 		<div className="pt-16 max-w-256 m-auto">
 			<section className="py-10">
@@ -39,19 +41,19 @@ function ProductPage() {
 								alt={product.product_name}
 							/>
 						</div>
-						<ProductDetails details={product.features} />
+						<ProductDetails details={product.features.details} isNew={isNew} />
 					</div>
 					<div>
 						<span className="block text-gray-500 text-sm mb-2">
-							Nuevo | 230 vendidos
+							{isNew ? 'Nuevo' : 'Usado'} | {sold} vendidos
 						</span>
 						<h1 className="text-xl lg:text-2xl font-semibold leading-7 lg:leading-6 text-gray-800 mb-4">
 							{product.product_name}
 						</h1>
 						<div className="flex items-center gap-2 mb-4">
-							<ProductRating rating={3} />
-							<Badge text="Lo mas vendido" />
-							<Badge text="Nuevo" color="bg-purple-500" />
+							<ProductRating rating={rating} />
+							{sold > 300 && <Badge text="Lo mas vendido" />}
+							{isNew && <Badge text="Nuevo" color="bg-purple-500" />}
 						</div>
 						<PriceDetails price={product.price} />
 						<div className="grid grid-cols-2 gap-4 mb-4">
@@ -76,7 +78,7 @@ function ProductPage() {
 						</div>
 						<ProductInformation
 							description={product.description}
-							deliveryAvailable
+							deliveryAvailable={hasDelivery}
 						/>
 						<ShareProduct />
 					</div>

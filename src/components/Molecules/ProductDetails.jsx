@@ -1,7 +1,7 @@
 import { PRODUCT_DETAILS } from '../../constants/product-details';
 import ProductDetailItem from '../Atoms/ProductDetailItem';
 
-const ProductDetails = ({ details }) => {
+const ProductDetails = ({ details, isNew }) => {
 	const features = Object.entries(details);
 
 	return (
@@ -16,6 +16,10 @@ const ProductDetails = ({ details }) => {
 
 					return <ProductDetailItem type={type} value={value} key={type} />;
 				})}
+				<ProductDetailItem
+					type="Condición del producto"
+					value={isNew ? 'Nuevo' : 'Usado'}
+				/>
 			</div>
 		</div>
 	);
