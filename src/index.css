@@ -2,51 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-input, textarea {
-  @apply block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-200 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none;
+input,
+textarea {
+	@apply block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-200 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none;
 }
 
-button, .button {
-  @apply inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out mb-3;
+button,
+.button {
+	@apply inline-block px-6 py-2.5 text-white font-medium text-xs lg:text-base leading-tight rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out mb-3;
 }
 
 .bg-gradient {
-    background: linear-gradient(to right,
-    #1460bc,
-    #2498ce,
-    #36a3dd,
-    #4482c4
-  );
+	background: linear-gradient(to right, #1460bc, #2498ce, #36a3dd, #4482c4);
+}
+
+.banner {
+	background: radial-gradient(
+		111% 364% at 7% 15%,
+		#1f3ea1 0,
+		#1d5db8 23%,
+		#1c7acd 36%,
+		#1aa7ee 50%,
+		#1c77cb 67%,
+		#1c60ba 80%,
+		#1e2f97 100%
+	);
+}
+
+.banner::before {
+	content: '';
+	position: absolute;
+	background: linear-gradient(205deg, #fff -15%, hsla(0, 0%, 100%, 0) 68%);
+	clip-path: polygon(32% 0, 100% 0, 100% 100%, 0 100%);
+	right: 0;
+	top: 0;
+	width: 60%;
+	height: 100%;
+	opacity: 0.6;
+	mix-blend-mode: soft-light;
 }
 
 .menu-item {
- @apply py-5 px-4 hover:text-sky-100; 
+	@apply py-5 px-4 hover:text-sky-100;
 }
 
 /* Tablas */
 table {
-  @apply w-full text-sm text-left;
+	@apply w-full text-sm text-left;
 }
 
 thead {
-  @apply uppercase bg-sky-700 text-white;
+	@apply uppercase bg-sky-700 text-white;
 }
 
-th, td {
-  @apply px-2 py-3 
+th,
+td {
+	@apply px-2 py-3;
 }
 
-tr:nth-child(even){
-  @apply bg-gray-100;
+tr:nth-child(even) {
+	@apply bg-gray-100;
 }
 
 /* Loader */
 .spin {
-  animation : EDrotation infinite 2s ease-out;
+	animation: EDrotation infinite 2s ease-out;
 }
 
 @keyframes EDrotation {
-  to {
-    transform : rotate(2turn);
-  }
+	to {
+		transform: rotate(2turn);
+	}
 }
