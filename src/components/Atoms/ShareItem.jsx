@@ -1,14 +1,14 @@
 const ShareItem = ({ icon: Icon }) => {
-	return (
-		<a
-			href="#"
-			target="_blank"
-			rel="noreferrer"
-			className="text-gray-500 hover:text-gray-700 transition-colors text-2xl"
-		>
-			<Icon />
-		</a>
-	);
-};
+  return (
+    <a
+      href="#"
+      target="_blank"
+      rel="noreferrer"
+      className="text-gray-500 hover:text-gray-700 transition-colors text-2xl"
+    >
+      <Icon />
+    </a>
+  )
+}
 
-export default ShareItem;
+export default ShareItem
