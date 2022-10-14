@@ -3,13 +3,9 @@ import { Link } from "react-router-dom"
 import { CartContext } from "../../context/CartContext"
 import { formatPrice } from "../../helpers/number"
 import BuyButton from "../Atoms/BuyButton"
-import ProductRating from "../Atoms/ProductRating"
 
 const ProductCard = ({ product }) => {
-  const { images, product_name, id, price, description, features } = product
-  const {
-    stats: { rating },
-  } = features
+  const { images, product_name, id, price, description } = product
 
   const { state, dispatch } = useContext(CartContext)
 
@@ -32,7 +28,6 @@ const ProductCard = ({ product }) => {
         </Link>
         <p className="text-gray-500 line-clamp-2">{description}</p>
       </div>
-      <ProductRating rating={rating} className="mb-3" />
       <div className="flex justify-between items-center">
         <span className="text-xl font-bold text-gray-900">
           {formatPrice(price)}
