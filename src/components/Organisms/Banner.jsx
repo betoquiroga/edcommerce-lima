@@ -12,7 +12,7 @@ const Banner = () => {
           <p className="text-lg">Donde comprar es sinónimo de gastar plata</p>
         </div>
         <div className="max-w-xs">
-          <img className src="/cartas.png" alt="Agregar al carrito" />
+          <img src="/cartas.png" alt="Agregar al carrito" />
         </div>
       </div>
     </section>

@@ -9,11 +9,13 @@ const ProductsTable = () => {
   const [products, isLoading, error] = useFetch("/public/products")
 
   const deleteProduct = (p) => {
-    axios
-      .delete(`${API_URL}/admin/products/${p.id}`, { headers })
-      .then((data) => {
-        console.log(data)
-      })
+    if (window.confirm("Estás seguro de eliminar")) {
+      axios
+        .delete(`${API_URL}/admin/products/${p.id}`, { headers })
+        .then((data) => {
+          console.log(data)
+        })
+    }
   }
 
   if (isLoading) return <Loader />
@@ -47,7 +49,12 @@ const ProductsTable = () => {
                   <Link to={`/admin/productos/editar/${p.id}`}>Editar</Link>
                 </td>
                 <td>
-                  <a onClick={() => deleteProduct(p)}>Eliminar</a>
+                  <a
+                    className="text-red-600 hover:cursor-pointer"
+                    onClick={() => deleteProduct(p)}
+                  >
+                    Eliminar
+                  </a>
                 </td>
               </tr>
             ))}

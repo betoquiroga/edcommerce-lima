@@ -192,13 +192,13 @@ const ProductsForm = () => {
               <label htmlFor="category">Categoría</label>
               <select
                 name="category"
-                className="outline-none text-center h-9 rounded"
+                className="outline-none h-9 rounded"
                 defaultValue={
                   product ? product.features.details.category : "Otros"
                 }
               >
                 <option value="Otros" disabled selected>
-                  --- Selecciona una categoría ---
+                  Selecciona una categoría
                 </option>
                 <option value="Tecnología">Tecnología</option>
                 <option value="Hogar">Hogar</option>

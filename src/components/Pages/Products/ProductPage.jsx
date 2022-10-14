@@ -80,7 +80,7 @@ function ProductPage() {
               description={product.description}
               deliveryAvailable={hasDelivery}
             />
-            <ShareProduct />
+            <ShareProduct id={product.id} />
           </div>
         </div>
       </section>
